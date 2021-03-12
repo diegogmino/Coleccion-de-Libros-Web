@@ -4,12 +4,12 @@
     Author     : diego
 --%>
 
-<header id="main-header" class="py-2 bg-info text-white">
+<header id="main-header" class="py-2 bg-danger text-white">
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <h1>
-                    <i class="fas fa-cog"></i>Coleccion de Libros
+                    <i class="fas fa-book"></i> Coleccion de Libros
                 </h1>
             </div>
         </div>

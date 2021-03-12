@@ -6,7 +6,9 @@
 
 package web;
 
+import datos.GeneroDaoJDBC;
 import datos.LibroDaoJDBC;
+import dominio.Genero;
 import dominio.Libro;
 import java.io.IOException;
 import java.util.List;
@@ -34,9 +36,27 @@ public class ServletControlador extends HttpServlet {
                 case "editar":
                     this.editarLibro(request,response);
                     break;
+                    
                 case "eliminar":
                     this.eliminarLibro(request, response);
+                    break; 
+                    
+                case "eliminarGenero":
+                    this.eliminarGenero(request, response);
+                    break;    
+                    
+                case "visualizar":
+                    this.visualizar(request, response);
                     break;
+                    
+                case "autor":
+                    this.librosAutor(request, response);
+                    break;
+                    
+                case "mostrarGeneros":
+                    this.mostrarGeneros(request, response);
+                    break;    
+                    
                 default:
                     this.accionDefault(request, response);
             }
@@ -59,6 +79,10 @@ public class ServletControlador extends HttpServlet {
                  
                 case "modificar":
                     this.modificar(request, response);
+                    break;
+                    
+                case "insertarGenero":
+                    this.insertarGenero(request, response);
                     break;
                     
                 default:
@@ -103,13 +127,34 @@ public class ServletControlador extends HttpServlet {
         this.accionDefault(request, response);
         
     }
+    
+    private double calcularPrecioTotal(List<Libro> libros) {
+        double precioTotal = 0;
+        for(Libro libro: libros) {
+            precioTotal += libro.getPrecio();
+        }
+        return precioTotal;
+    }
+    
+    private int calcularNumeroAutores(List<Libro> libros) {
+        
+        int numeroAutores = 0;
+        
+        numeroAutores = new LibroDaoJDBC().numeroAutores();
+        
+        return numeroAutores;
+    }
 
     private void accionDefault(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Libro> libros = new LibroDaoJDBC().listar();
+        List<Genero> generos = new GeneroDaoJDBC().listar();
         System.out.println("libros = " + libros);
         HttpSession sesion = request.getSession();
+        sesion.setAttribute("precioTotal", this.calcularPrecioTotal(libros));
+        sesion.setAttribute("totalLibros", libros.size());
+        sesion.setAttribute("numeroAutores", this.calcularNumeroAutores(libros));
+        sesion.setAttribute("generos", generos);
         sesion.setAttribute("libros", libros);
-        //request.getRequestDispatcher("libros.jsp").forward(request, response);
         response.sendRedirect("libros.jsp");
     }
 
@@ -119,6 +164,9 @@ public class ServletControlador extends HttpServlet {
         
         Libro libro = new LibroDaoJDBC().encontrar(new Libro(id));
         
+        List<Genero> generos = new GeneroDaoJDBC().listar();
+        
+        request.setAttribute("generos", generos);
         request.setAttribute("libro", libro);
         String jspEditar = "/WEB-INF/paginas/libro/editarLibro.jsp";
         request.getRequestDispatcher(jspEditar).forward(request, response);
@@ -171,6 +219,65 @@ public class ServletControlador extends HttpServlet {
         System.out.println("Registros modificados => " + registrosModificados);
         
         this.accionDefault(request, response);
+        
+    }
+
+    private void visualizar(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+         int id = Integer.parseInt(request.getParameter("id"));
+        
+        Libro libro = new LibroDaoJDBC().encontrar(new Libro(id));
+        
+        request.setAttribute("libro", libro);
+        String jspVisualizar = "/WEB-INF/paginas/libro/visualizarLibro.jsp";
+        request.getRequestDispatcher(jspVisualizar).forward(request, response);
+        
+    }
+
+    private void librosAutor(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        String autor = request.getParameter("autor");
+        
+        List<Libro> libros = new LibroDaoJDBC().encontrarAutor(new Libro(autor));
+        request.setAttribute("libros", libros);
+        String jspMostrarAutor = "/WEB-INF/paginas/libro/mostrarAutor.jsp";
+        request.getRequestDispatcher(jspMostrarAutor).forward(request, response);
+        
+    }
+
+    private void insertarGenero(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+       
+        String generoString = request.getParameter("genero");
+        Genero genero = new Genero(generoString);
+        
+        int registrosModificados = new GeneroDaoJDBC().insertar(genero);
+        
+        System.out.println("Registros modificados => " + registrosModificados);
+        
+        this.accionDefault(request, response);
+        
+    }
+
+    private void mostrarGeneros(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException {
+        
+        List<Genero> generos = new GeneroDaoJDBC().listar();
+        
+        request.setAttribute("generos", generos);
+        String jspMostrarGeneros = "/WEB-INF/paginas/libro/mostrarGeneros.jsp";
+        request.getRequestDispatcher(jspMostrarGeneros).forward(request, response);
+        
+    }
+
+    private void eliminarGenero(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        int id = Integer.parseInt(request.getParameter("id"));
+        
+        Genero genero = new Genero(id);
+        
+        int registrosModificados = new GeneroDaoJDBC().eliminar(genero);
+        System.out.println("Registros modificados => " + registrosModificados);
+        
+        this.mostrarGeneros(request, response);
         
     }
 

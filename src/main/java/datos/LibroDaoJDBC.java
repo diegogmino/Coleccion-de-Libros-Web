@@ -30,6 +30,14 @@ public class LibroDaoJDBC {
             "SELECT id, isbn, titulo, autor, genero, portada, precio, paginas "
             + " FROM libros WHERE id = ?";
     
+    private static final String SQL_SELECT_BY_AUTHOR =  
+            "SELECT id, isbn, titulo, autor, genero, portada, precio, paginas "
+            + " FROM libros WHERE autor LIKE ?";
+    
+    private static final String SQL_SELECT_NUM_AUTHOR =  
+            "SELECT id, isbn, titulo, autor, genero, portada, precio, paginas "
+            + " FROM libros GROUP BY autor";
+    
     private static final String SQL_INSERT = 
              "INSERT INTO libros(isbn, titulo, autor, genero, portada, precio, paginas) "
             + "VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -46,6 +54,37 @@ public class LibroDaoJDBC {
     
     private static final String SQL_DELETE = 
             "DELETE FROM libros WHERE id = ?";
+    
+    public int numeroAutores() {
+        
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        int autores = 0;
+        
+          try {
+              conn = Conexion.getConnection();
+              stmt = conn.prepareStatement(SQL_SELECT_NUM_AUTHOR);
+              
+              rs = stmt.executeQuery();
+              
+              while(rs.next()) {
+                  
+                  autores++;
+                  
+              }
+              
+              
+          } catch (SQLException ex) {
+              Logger.getLogger(LibroDaoJDBC.class.getName()).log(Level.SEVERE, null, ex);
+          } finally {
+            Conexion.close(rs);
+            Conexion.close(stmt);
+            Conexion.close(conn);
+        }
+        
+        return autores;
+    }
     
     public List<Libro> listar() {
         
@@ -87,6 +126,46 @@ public class LibroDaoJDBC {
         
     }
     
+    public List<Libro> encontrarAutor(Libro libro) {
+        Connection conn = null;
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        Libro libroEncontrado = null;
+        List<Libro> libros = new ArrayList<>();
+        
+          try {
+              conn = Conexion.getConnection();
+              stmt = conn.prepareStatement(SQL_SELECT_BY_AUTHOR);
+              
+              stmt.setString(1, libro.getAutor());
+              rs = stmt.executeQuery();
+              
+              while(rs.next()) {
+                  int id = rs.getInt("id");
+                  Long isbn = rs.getLong("isbn");
+                  String titulo = rs.getString("titulo");
+                  String autor = rs.getString("autor");
+                  String genero = rs.getString("genero");
+                  String portada = rs.getString("portada");
+                  double precio = rs.getDouble("precio");
+                  int paginas = rs.getInt("paginas");
+              
+                  libroEncontrado = new Libro(id, isbn, titulo, autor, genero, portada, precio, paginas);
+                  libros.add(libroEncontrado);
+              }
+              
+              
+          } catch (SQLException ex) {
+              Logger.getLogger(LibroDaoJDBC.class.getName()).log(Level.SEVERE, null, ex);
+          } finally {
+            Conexion.close(rs);
+            Conexion.close(stmt);
+            Conexion.close(conn);
+        }
+          
+          return libros;
+    }
+    
     public Libro encontrar(Libro libro) {
         Connection conn = null;
         PreparedStatement stmt = null;
@@ -98,9 +177,6 @@ public class LibroDaoJDBC {
               
               stmt.setInt(1, libro.getId());
               rs = stmt.executeQuery();
-              
-              //rs.absolute(1);
-              
               
               while(rs.next()) {
                   Long isbn = rs.getLong("isbn");

@@ -9,19 +9,13 @@
         <div class="row">
             <div class="col-md-3">
                 <a href="index.jsp" class="btn btn-light btn-block">
-                    <i class="fas fa-arrow-left"></i> Regresar al inicio
+                    <i class="fas fa-arrow-left"></i> Volver a la página principal
                 </a>
             </div>
             <div class="col-md-3">
                 <button type="submit" class="btn btn-success btn-block">
                     <i class="fas fa-check"></i> Guardar libro
                 </button>
-            </div>
-            <div class="col-md-3">
-                <a href="${pageContext.request.contextPath}/ServletControlador?accion=eliminar&id=${libro.id}"
-                   class="btn btn-danger btn-block">
-                    <i class="fas fa-trash"></i> Eliminar libro
-                </a>
             </div>
         </div>
     </div>

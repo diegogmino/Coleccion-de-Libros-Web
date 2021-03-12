@@ -4,6 +4,7 @@
     Author     : diego
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div class="modal fade" id="agregarLibroModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -29,8 +30,14 @@
                         <input type="text" class="form-control" name="autor" required>
                     </div>
                     <div class="form-group">
-                        <label for="genero">Género</label>
-                        <input type="text" class="form-control" name="genero" required>
+                        <label for="autor">Género</label>
+                    </div>
+                    <div class="input-group form-group">
+                        <select class="form-select" name="genero" id="genero" required>
+                            <c:forEach  var="genero" items="${generos}">
+                                <option value="${genero.genero}">${genero.genero}</option>
+                            </c:forEach>
+                        </select>s  
                     </div>
                     <div class="form-group">
                         <label for="portada">Portada</label>
@@ -38,7 +45,7 @@
                     </div>
                     <div class="form-group">
                         <label for="precio">Precio</label>
-                        <input type="number" class="form-control" name="precio" required>
+                        <input type="number" class="form-control" name="precio" step="any" required>
                     </div>
                     <div class="form-group">
                         <label for="paginas">Páginas</label>
@@ -55,3 +62,9 @@
     </div>
   </div>
 </div>
+                  
+<script>
+    function myFunction() {
+        
+    }
+</script>

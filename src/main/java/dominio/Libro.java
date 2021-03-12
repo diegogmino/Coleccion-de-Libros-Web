@@ -24,6 +24,10 @@ public class Libro {
     public Libro() {
     }
 
+    public Libro(String autor) {
+        this.autor = autor;
+    }
+
     public Libro(int id, Long isbn, String titulo, String autor, String genero, String portada, double precio, int paginas) {
         this.id = id;
         this.isbn = isbn;

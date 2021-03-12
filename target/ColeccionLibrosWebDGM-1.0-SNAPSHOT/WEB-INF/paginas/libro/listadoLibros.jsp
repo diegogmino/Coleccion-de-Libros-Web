@@ -9,9 +9,9 @@
 <fmt:setLocale value="es_ES" />
 
 <section id="libros">
-    <div class="container">
+    <div class="container mt-3">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <h4>Coleccion de libros</h4>
@@ -24,9 +24,9 @@
                                 <th>Titulo</th>
                                 <th>Autor</th>
                                 <th>Género</th>
-                                <th>Portada</th>
-                                <th>Precio</th>
                                 <th>Paginas</th>
+                                <th></th>
+                                <th></th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -38,30 +38,80 @@
                                     <td>${libro.titulo}</td>
                                     <td>${libro.autor}</td>
                                     <td>${libro.genero}</td>
-                                    <td>${libro.portada}</td>
-                                    <td><fmt:formatNumber value="${libro.precio}" type="currency" currencySymbol="$" /></td>
                                     <td>${libro.paginas}</td>
                                     <td>
                                         
                                         <a href="${pageContext.request.contextPath}/ServletControlador?accion=editar&id=${libro.id}"
-                                           class="btn btn-secondary">
-                                             <i class="fas fa-angle-double-right"></i>Editar
+                                           class="btn btn-info text-white">
+                                             <i class="fas fa-angle-double-right"></i> Editar
                                         </a>
                                            
-                                    </td>             
+                                    </td>
+                                    <td>
+                                        
+                                        <a href="${pageContext.request.contextPath}/ServletControlador?accion=eliminar&id=${libro.id}"
+                                            class="btn btn-danger btn-block">
+                                                <i class="fas fa-trash"></i> Eliminar
+                                        </a>
+                                        
+                                    </td>
+                                    <td>
+                                        
+                                        <a href="${pageContext.request.contextPath}/ServletControlador?accion=visualizar&id=${libro.id}"
+                                           class="btn btn-success btn-block">
+                                                <i class="fas fa-eye"></i> Visualizar         
+                                        </a>
+                                        
+                                    </td>
+                                    
+                                    
                                 </tr>
                             </c:forEach>
                         </tbody>
                     </table>
                 </div>
             </div>
-            <div class="col-md-3">
+        </div>
+        
+        <div class="row mt-3">
+            <div class="col-md-4">
                 
-                <!--Tarjetas de informacion-->
+                <div class="card text-center bg-info text-white">
+                    <div class="card-body">
+                        <h3>Precio de la colección</h3>
+                        <h4 class="display-4">
+                            <fmt:formatNumber value="${precioTotal}" type="currency" currencySymbol="$"/>
+                        </h4>
+                    </div>
+                </div>
                 
             </div>
+            <div class="col-md-4">
+                
+                <div class="card text-center bg-danger text-white">
+                    <div class="card-body">
+                        <h3>Libros totales</h3>
+                        <h4 class="display-4">
+                            <i class="fas fa-book"></i> ${totalLibros}
+                        </h4>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="col-md-4">
+                
+                <div class="card text-center bg-success text-white">
+                    <div class="card-body">
+                        <h3>Número de autores</h3>
+                        <h4 class="display-4">
+                            <i class="fas fa-user-tie"></i> ${numeroAutores}
+                        </h4>
+                    </div>
+                </div>
+                
+            </div>            
+   
         </div>
+        
     </div>
 </section>
-
-<jsp:include page="/WEB-INF/paginas/libro/agregarLibro.jsp"/>

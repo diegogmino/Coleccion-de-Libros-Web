@@ -17,7 +17,7 @@
         
         <jsp:include page="WEB-INF/paginas/comunes/encabezado.jsp"/>
         
-        <jsp:include page="WEB-INF/paginas/comunes/botonesNavegacion.jsp"/>       
+        <jsp:include page="WEB-INF/paginas/comunes/botonesNavegacion.jsp"/>
         
         <jsp:include page="WEB-INF/paginas/libro/listadoLibros.jsp"/>
         

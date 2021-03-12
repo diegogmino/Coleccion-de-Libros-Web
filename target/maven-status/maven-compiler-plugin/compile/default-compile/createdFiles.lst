@@ -1,4 +1,6 @@
-datos\Conexion.class
+datos\GeneroDaoJDBC.class
+dominio\Genero.class
 web\ServletControlador.class
 datos\LibroDaoJDBC.class
+datos\Conexion.class
 dominio\Libro.class
