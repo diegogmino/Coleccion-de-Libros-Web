@@ -62,7 +62,7 @@
                                  <h4>Autor</h4>
                              </div>
                              <div class="col-md-6 text-center">
-                                 <h4><a href="${pageContext.request.contextPath}/ServletControlador?accion=autor&autor=${libro.autor}" class="link-info">${libro.autor}</a></h4>
+                                 <h4><a href="${pageContext.request.contextPath}/ServletControlador?accion=autor&autor=${libro.autor}" class="link-success">${libro.autor}</a></h4>
                              </div>
                          </div>
                          <div class="row bg-secondary">
@@ -92,20 +92,6 @@
                      </div>                                          
                  </div>
                  <div class="col-md-6">
-                     
-                     <% 
-                     
-                    // Método que comprueba si la url de una imagen es válida
-                    String portadaMostrar;
-                    Libro libroPortada = new LibroDaoJDBC().encontrar(new Libro(Integer.parseInt(request.getParameter("id"))));
-
-                    System.out.println(libroPortada.getPortada());
-                    
-             
-                    
-                    
-
-                     %>
                      
                      <img src="${libro.portada}" class="rounded float-end w-75 p-3" alt="Portada no disponible">
                  </div>

@@ -128,7 +128,7 @@ public class ServletControlador extends HttpServlet {
         
     }
     
-    private double calcularPrecioTotal(List<Libro> libros) {
+    public double calcularPrecioTotal(List<Libro> libros) {
         double precioTotal = 0;
         for(Libro libro: libros) {
             precioTotal += libro.getPrecio();
@@ -136,7 +136,7 @@ public class ServletControlador extends HttpServlet {
         return precioTotal;
     }
     
-    private int calcularNumeroAutores(List<Libro> libros) {
+    public int calcularNumeroAutores(List<Libro> libros) {
         
         int numeroAutores = 0;
         

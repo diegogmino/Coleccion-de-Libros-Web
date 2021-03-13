@@ -8,7 +8,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3">
-                <a href="index.jsp" class="btn btn-light btn-block">
+                <a href="libros.jsp" class="btn btn-light btn-block">
                     <i class="fas fa-arrow-left"></i> Volver a la página principal
                 </a>
             </div>

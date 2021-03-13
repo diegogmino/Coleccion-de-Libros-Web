@@ -18,6 +18,9 @@
                      <div class="col-md-2">
                          <a href="${pageContext.request.contextPath}/ServletControlador?accion=mostrarGeneros" class="btn btn-secondary text-white">Mostrar géneros</a>           
                      </div>
+                     <div class="col-md-2">
+                        <a href="index.jsp" class="btn btn-info btn-block text-white">Cerrar sesión</a>
+                    </div>
                 </div>
             </div>
 </section>

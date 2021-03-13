@@ -37,7 +37,7 @@
                             <c:forEach  var="genero" items="${generos}">
                                 <option value="${genero.genero}">${genero.genero}</option>
                             </c:forEach>
-                        </select>s  
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="portada">Portada</label>
@@ -62,9 +62,3 @@
     </div>
   </div>
 </div>
-                  
-<script>
-    function myFunction() {
-        
-    }
-</script>
