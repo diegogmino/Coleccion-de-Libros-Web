@@ -14,17 +14,17 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Coleccion de libros</h4>
+                        <h4>Biblioteca</h4>
                     </div>
                     <table class="table table-striped">
                         <thead class="thead-dark">
                             <tr>
                                 <th>#</th>
-                                <th>ISBN</th>
+                                <th>ISBN-13</th>
                                 <th>Titulo</th>
                                 <th>Autor</th>
                                 <th>Género</th>
-                                <th>Paginas</th>
+                                <th>Páginas</th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
@@ -42,7 +42,7 @@
                                     <td>
                                         
                                         <a href="${pageContext.request.contextPath}/ServletControlador?accion=editar&id=${libro.id}"
-                                           class="btn btn-info text-white">
+                                           class="btn btn-outline-info">
                                              <i class="fas fa-angle-double-right"></i> Editar
                                         </a>
                                            
@@ -50,7 +50,7 @@
                                     <td>
                                         
                                         <a href="${pageContext.request.contextPath}/ServletControlador?accion=eliminar&id=${libro.id}"
-                                            class="btn btn-danger btn-block">
+                                            class="btn btn-outline-danger btn-block">
                                                 <i class="fas fa-trash"></i> Eliminar
                                         </a>
                                         
@@ -58,7 +58,7 @@
                                     <td>
                                         
                                         <a href="${pageContext.request.contextPath}/ServletControlador?accion=visualizar&id=${libro.id}"
-                                           class="btn btn-success btn-block">
+                                           class="btn btn-outline-success btn-block">
                                                 <i class="fas fa-eye"></i> Visualizar         
                                         </a>
                                         
@@ -80,7 +80,7 @@
                     <div class="card-body">
                         <h3>Precio de la colección</h3>
                         <h4 class="display-4">
-                            <fmt:formatNumber value="${precioTotal}" type="currency" currencySymbol="$"/>
+                            ${precioTotal} <i class="fas fa-euro-sign"></i>
                         </h4>
                     </div>
                 </div>

@@ -11,7 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/7523bca391.js" crossorigin="anonymous"></script>
         
@@ -54,7 +54,7 @@
                                     <td>
                                         
                                         <a href="${pageContext.request.contextPath}/ServletControlador?accion=eliminarGenero&id=${generos.id}"
-                                            class="btn btn-danger btn-block">
+                                            class="btn btn-outline-danger btn-block">
                                                 <i class="fas fa-trash"></i> Eliminar
                                         </a>
                                         

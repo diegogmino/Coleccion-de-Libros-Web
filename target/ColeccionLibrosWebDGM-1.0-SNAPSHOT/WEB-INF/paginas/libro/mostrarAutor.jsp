@@ -1,7 +1,7 @@
 <%-- 
     Document   : mostrarAutor
     Created on : 10 mar. 2021, 17:57:27
-    Author     : Sammy Guergachi <sguergachi at gmail.com>
+    Author     : diego
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -10,6 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Libros de ${libros[0].autor}</title>
+        <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
         <script src="https://kit.fontawesome.com/7523bca391.js" crossorigin="anonymous"></script>
     </head>

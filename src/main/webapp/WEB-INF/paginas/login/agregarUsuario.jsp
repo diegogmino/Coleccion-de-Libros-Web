@@ -1,7 +1,7 @@
 <%-- 
     Document   : agregarUsuario
     Created on : 13 mar. 2021, 14:11:23
-    Author     : Sammy Guergachi <sguergachi at gmail.com>
+    Author     : diego
 --%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

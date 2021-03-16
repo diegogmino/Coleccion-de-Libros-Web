@@ -13,7 +13,7 @@
                 </a>
             </div>
             <div class="col-md-3">
-                <button type="submit" class="btn btn-success btn-block">
+                <button type="submit" class="btn btn-outline-success btn-block">
                     <i class="fas fa-check"></i> Guardar libro
                 </button>
             </div>

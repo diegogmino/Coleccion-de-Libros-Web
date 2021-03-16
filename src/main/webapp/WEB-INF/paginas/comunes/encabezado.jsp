@@ -9,7 +9,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h1>
-                    <i class="fas fa-book"></i> Coleccion de Libros
+                    <i class="fas fa-book"></i> Mi biblioteca
                 </h1>
             </div>
         </div>

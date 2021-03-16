@@ -21,7 +21,7 @@
                         <input type="text" class="form-control" name="genero" required>
                     </div>
                     <div class="modal-footer">
-                    <button class="btn btn-primary" type="submit">Guardar</button>
+                    <button class="btn btn-outline-primary" type="submit">Guardar</button>
                 </div>
             </form>
       </div>
