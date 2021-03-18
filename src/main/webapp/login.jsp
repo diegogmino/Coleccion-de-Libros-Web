@@ -51,7 +51,7 @@
                     </div>
                 </div>
                  <div class="col-md-5">     
-                     <img src="https://png2.cleanpng.com/sh/50e609e03451312c08056973e68c2bef/L0KzQYm3VcA2N6V8j5H0aYP2gLBuTfJwd5wye9HBZYKwf8b7jPlvbV5ohNt5LXH1hH68gfVlPWlnTqo8Y0O7RXA8V8c1OWg7UKMAMkW4QIW4WMI2O2o8RuJ3Zx==/kisspng-book-cover-outline-clip-art-5aed58b683c385.5774176815255041825397.png" class="rounded float-end w-75 mt-5 mb-5" alt="Imagen no disponible">      
+                     <img src="https://png2.cleanpng.com/sh/2260ab762b709b292ce79636d6487a76/L0KzQYm3U8I6N5Z9fZH0aYP2gLBuTfJwd5wyi9t1aHB4dcX7hb1zd6pmhOZELXb1dba0gBxqeF5miuY2b4Dofn7pjB9sNWZmetYDN3SzcoSBWfQ2NmE9SqcEMkG8QYa5UsM4OGY2Sqk8NUSxgLBu/kisspng-book-silhouette-royalty-free-clip-art-open-book-5abd87d0b389d5.0825921915223705127354.png" class="rounded float-end w-75 mt-5 mb-5" alt="Imagen no disponible">      
                 </div>
             </div>
         </div>
